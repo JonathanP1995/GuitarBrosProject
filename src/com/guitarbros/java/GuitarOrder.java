@@ -27,21 +27,18 @@ public class GuitarOrder {
     private void buildHouse() {
         System.out.println("Your dream guitar is waiting");
         varChoice();
-        varChoice2();
+        /*varChoice2();
         varChoice3();
         varChoice4();
-        shipSize();
-        myOrder.add(new Guitar(instrumentType,thingType,orderSize));
-        orderDone();
+        //myOrder.add(new Guitar(instrumentType,thingType,orderSize));
+        orderDone();*/
     }
 
     private void printResult() {
         System.out.println("THANK YOU");
         for (Guitar myGuitar : myOrder) {
-            System.out.println("Your guitar order has the following: ");
-            System.out.println(myGuitar.getorderSize() +" guitars ");
-            //NEED A PLURALIZATION SYSTEM IN CASE MORE THAN 1 IS CHOSEN! "guitar or guitar's
-            System.out.println(myGuitar.getGuitarType() + "");
+            System.out.println("You have ordered the:" + "");
+            //System.out.println(myGuitar.getGuitarType() + "");
             System.out.println(myGuitar.getThingType() + "");
             System.out.println();
         }
@@ -81,19 +78,16 @@ public class GuitarOrder {
                 switch (varType) {
                     case 1:
                         instrumentType = "Electric";
+                        varChoice2();
                         break;
                     case 2:
                         instrumentType = "Acoustic";
+                        varChoice3();
                         break;
                     default:
                         instrumentType = "Hybrid";
+                        varChoice4();
                         break;
-                } if(varType == 1) {
-                    varChoice2();
-                } if(varType == 2) {
-                    varChoice3();
-                } if(varType == 3) {
-                    varChoice4();
                 }
             }
         }
@@ -113,19 +107,16 @@ public class GuitarOrder {
                 switch (varType) {
                     case 1:
                         thingType = "Fender Stratocaster";
+                        orderDone();
                         break;
                     case 2:
                         thingType = "Gibson Les Paul";
+                        orderDone();
                         break;
                     default:
                         thingType = "Gibson Flying V";
+                        orderDone();
                         break;
-                } if(varType == 1) {
-                    shipSize();
-                } if(varType == 2) {
-                    shipSize();
-                } if(varType == 3) {
-                    shipSize();
                 }
             }
         }
@@ -136,28 +127,25 @@ public class GuitarOrder {
         System.out.println("Press 1 for Dreadnaught, 2 for Parlour or 3 for Auditorium");
         if(!verifyNumberInput()) {
             System.out.println("You have entered an incorrect value. Please try again");
-            varChoice2();
+            varChoice3();
         } else {
             if(varType > 3) {
                 System.out.println("You have entered a number larger than 3. Please try again");
-                varChoice2();
+                varChoice3();
             } else {
                 switch (varType) {
                     case 1:
                         thingType = "Dreadnaught";
+                        orderDone();
                         break;
                     case 2:
                         thingType = "Parlour";
+                        orderDone();
                         break;
                     default:
                         thingType = "Auditorium";
+                        orderDone();
                         break;
-                } if(varType == 1) {
-                    shipSize();
-                } if(varType == 2) {
-                    shipSize();
-                } if(varType == 3) {
-                    shipSize();
                 }
             }
         }
@@ -165,9 +153,10 @@ public class GuitarOrder {
 
     private void varChoice4() {
         System.out.println("You have chosen our specialty Hybrid guitar. Congradulations!");
-
+        orderDone();
     }
 
+    /*
     private void shipSize() {
         System.out.println("How many guitars would you like?");
         in = new Scanner(System.in);
@@ -179,6 +168,8 @@ public class GuitarOrder {
             shipSize();
         }
     }
+
+     */
 
     private boolean verifyNumberInput() {
         in = new Scanner(System.in);
