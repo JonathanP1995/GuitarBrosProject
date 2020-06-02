@@ -30,16 +30,15 @@ public class GuitarOrder {
         /*varChoice2();
         varChoice3();
         varChoice4();
-        //myOrder.add(new Guitar(instrumentType,thingType,orderSize));
-        orderDone();*/
+        //myOrder.add(new Guitar(instrumentType,thingType,orderSize));*/
+        //orderDone();
     }
 
     private void printResult() {
         System.out.println("THANK YOU");
-        for (Guitar myGuitar : myOrder) {
-            System.out.println("You have ordered the:" + "");
-            System.out.println(myGuitar.getThingType() + "");
-            System.out.println();
+        System.out.println("Your order has the following:");
+        for(Guitar myGuitar : myOrder) {
+
         }
     }
 
@@ -94,7 +93,7 @@ public class GuitarOrder {
 
     private void varChoice2() {
         System.out.println("What style would you prefer?");
-        System.out.println("Press 1 for Fender Stratocaster, 2 for Gibson Les Paul or 3 for Gibson Flying V");
+        System.out.println("Press 1 for Fender Stratocaster: $700, 2 for Gibson Les Paul: $600 or 3 for Gibson Flying V: $1200");
         if(!verifyNumberInput()) {
             System.out.println("You have entered an incorrect value. Please try again");
             varChoice2();
@@ -105,15 +104,15 @@ public class GuitarOrder {
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "Fender Stratocaster";
+                        thingType = 700 + "$700 Fender Stratocaster - model#EG6400, UPC# 1132438488";
                         orderDone();
                         break;
                     case 2:
-                        thingType = "Gibson Les Paul";
+                        thingType = "$600 Gibson Les Paul - model#EG7400, UPC# 1135327446";
                         orderDone();
                         break;
                     default:
-                        thingType = "Gibson Flying V";
+                        thingType = "$1200 Gibson Flying V - model#EG8600, UPC# 1136433398";
                         orderDone();
                         break;
                 }
@@ -123,7 +122,7 @@ public class GuitarOrder {
 
     private void varChoice3() {
         System.out.println("What style would you prefer?");
-        System.out.println("Press 1 for Dreadnaught, 2 for Parlour or 3 for Auditorium");
+        System.out.println("Press 1 for Dreadnaught: $200, 2 for Parlour: $250 or 3 for Auditorium: $400");
         if(!verifyNumberInput()) {
             System.out.println("You have entered an incorrect value. Please try again");
             varChoice3();
@@ -134,15 +133,15 @@ public class GuitarOrder {
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "Dreadnaught";
+                        thingType = "$200 Dreadnought - model#  AG3219, UPC# 3534019753";
                         orderDone();
                         break;
                     case 2:
-                        thingType = "Parlour";
+                        thingType = "$250 Parlour - model# AG3319, UPC# 3536528647";
                         orderDone();
                         break;
                     default:
-                        thingType = "Auditorium";
+                        thingType = "$400 Auditorium - model# AG4019, UPC# 3538607326";
                         orderDone();
                         break;
                 }
@@ -151,8 +150,25 @@ public class GuitarOrder {
     }
 
     private void varChoice4() {
-        System.out.println("You have chosen our specialty Hybrid guitar. Congradulations!");
-        orderDone();
+        System.out.println("Our specialty hybrid guitar is $2000.");
+        System.out.println("Would you like to proceed. Y for yes, N for no.");
+        String val = in.next();
+        switch (val) {
+            case "Y":
+            case "y":
+                thingType = "$2000 Acoustic/electric hybrid - model# HB00001,  UPC# 3538600001";
+                System.out.println("You have chosen our specialty Hybrid guitar. Congratulations!");
+                orderDone();
+                break;
+            case "N":
+            case "n":
+                buildHouse();
+                break;
+            default:
+                System.out.println("You have entered an incorrect value. Please try again");
+                orderDone();
+                break;
+        }
     }
 
     /*
