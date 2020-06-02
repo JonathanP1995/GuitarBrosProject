@@ -32,10 +32,10 @@ public class Guitar {
     }
 
 
-    protected void setorderSize(int value) {
+    protected void setOrderSize(int value) {
         guitarCount = value;
     }
-    protected int getorderSize() {
+    protected int getOrderSize() {
         return guitarCount;
     }
     

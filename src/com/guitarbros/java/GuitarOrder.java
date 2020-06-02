@@ -27,18 +27,18 @@ public class GuitarOrder {
     private void buildHouse() {
         System.out.println("Your dream guitar is waiting");
         varChoice();
-        /*varChoice2();
-        varChoice3();
-        varChoice4();
-        //myOrder.add(new Guitar(instrumentType,thingType,orderSize));*/
-        //orderDone();
+        myOrder.add(new Guitar(instrumentType,thingType,orderSize));
+        orderDone();
     }
 
     private void printResult() {
         System.out.println("THANK YOU");
-        System.out.println("Your order has the following:");
-        for(Guitar myGuitar : myOrder) {
+        System.out.println("Your order has the following: ");
+        for (Guitar myGuitar : myOrder) {
 
+            //System.out.println(myGuitar.getOrderSize() +" guitars ");
+            //System.out.println(myGuitar.getGuitarType() + "");
+            System.out.println(myGuitar.getThingType() + "");
         }
     }
 
@@ -56,7 +56,6 @@ public class GuitarOrder {
                 break;
             default:
                 System.out.println("You have entered an incorrect value. Please try again");
-                orderDone();
                 break;
         }
 
@@ -104,16 +103,13 @@ public class GuitarOrder {
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = 700 + "$700 Fender Stratocaster - model#EG6400, UPC# 1132438488";
-                        orderDone();
+                        thingType = "$700 Fender Stratocaster - model#EG6400, UPC# 1132438488";
                         break;
                     case 2:
                         thingType = "$600 Gibson Les Paul - model#EG7400, UPC# 1135327446";
-                        orderDone();
                         break;
                     default:
                         thingType = "$1200 Gibson Flying V - model#EG8600, UPC# 1136433398";
-                        orderDone();
                         break;
                 }
             }
@@ -134,15 +130,12 @@ public class GuitarOrder {
                 switch (varType) {
                     case 1:
                         thingType = "$200 Dreadnought - model#  AG3219, UPC# 3534019753";
-                        orderDone();
                         break;
                     case 2:
                         thingType = "$250 Parlour - model# AG3319, UPC# 3536528647";
-                        orderDone();
                         break;
                     default:
                         thingType = "$400 Auditorium - model# AG4019, UPC# 3538607326";
-                        orderDone();
                         break;
                 }
             }
@@ -158,15 +151,13 @@ public class GuitarOrder {
             case "y":
                 thingType = "$2000 Acoustic/electric hybrid - model# HB00001,  UPC# 3538600001";
                 System.out.println("You have chosen our specialty Hybrid guitar. Congratulations!");
-                orderDone();
                 break;
             case "N":
             case "n":
-                buildHouse();
+                varChoice();
                 break;
             default:
                 System.out.println("You have entered an incorrect value. Please try again");
-                orderDone();
                 break;
         }
     }
