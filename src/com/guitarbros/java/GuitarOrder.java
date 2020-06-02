@@ -38,7 +38,6 @@ public class GuitarOrder {
         System.out.println("THANK YOU");
         for (Guitar myGuitar : myOrder) {
             System.out.println("You have ordered the:" + "");
-            //System.out.println(myGuitar.getGuitarType() + "");
             System.out.println(myGuitar.getThingType() + "");
             System.out.println();
         }
