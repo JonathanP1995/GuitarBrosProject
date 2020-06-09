@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         //guitarOrder();
-        exampleSerial();
+        // exampleSerial();
     }
 
     public static void guitarOrder() {
@@ -16,7 +16,7 @@ public class Main {
     }
 
     public static void exampleSerial() {
-        ArrayList<AcousticInterface> upc = new ArrayList<>();
+        ArrayList<AbstractAcoustic> upc = new ArrayList<>();
         for(int i = 0; i > upc.size(); i++) {
             System.out.println(upc.get(i).getSerialUPC());
         }

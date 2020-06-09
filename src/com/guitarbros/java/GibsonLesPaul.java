@@ -1,17 +1,25 @@
 package com.guitarbros.java;
 
-public class GibsonLesPaul implements ElectricInterface {
-    @Override
-    public String getElectronicPickUp() {
-        return "Guitar parts of the Electric. ";
+public class GibsonLesPaul extends AbstractElectric {
+
+    private static final long prefix = 113532;
+
+    public GibsonLesPaul(GuitarColor color, GuitarStrings strings) {
+        super(strings, color);
+        upc = 1234;
+        setSerialUPC(SerialNumbers.getInstance(prefix, upc).getNextSerial());
     }
 
     @Override
-    public String getAmp() {
-        return "Guitar parts of the Electric. ";
-    }
+    public long getPrefix() {return prefix;}
+
     @Override
-    public String getWhammyBar() {
-        return "Guitar parts of the Electric. ";
-    }
+    public float getPrice() {return 600F;}
+
+    @Override
+    public String getFretBoard() {return fretBoard;}
+
+    @Override
+    public String getAmp() {return amp;}
+
 }

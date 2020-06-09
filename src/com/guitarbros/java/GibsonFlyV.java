@@ -1,17 +1,25 @@
 package com.guitarbros.java;
 
-public class GibsonFlyV implements ElectricInterface {
-    @Override
-    public String getElectronicPickUp() {
-        return "Guitar parts of the Electric. ";
+public class GibsonFlyV extends AbstractElectric {
+
+    private static final long prefix = 113643;
+
+    public GibsonFlyV(GuitarColor color, GuitarStrings strings) {
+        super(strings, color);
+        upc = 1234;
+        setSerialUPC(SerialNumbers.getInstance(prefix, upc).getNextSerial());
     }
 
     @Override
-    public String getAmp() {
-        return "Guitar parts of the Electric. ";
-    }
+    public long getPrefix() {return prefix;}
+
     @Override
-    public String getWhammyBar() {
-        return "Guitar parts of the Electric. ";
-    }
+    public float getPrice() {return 1200F;}
+
+    @Override
+    public String getFretBoard() {return fretBoard;}
+
+    @Override
+    public String getAmp() {return amp;}
+
 }

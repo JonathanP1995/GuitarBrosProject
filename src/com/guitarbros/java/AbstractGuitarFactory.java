@@ -1,6 +1,6 @@
 package com.guitarbros.java;
 
-public abstract class AbstractGuitarFactory implements AcousticInterface {
+public abstract class AbstractGuitarFactory implements AbstractAcoustic {
     protected long upc;
     private long serialUPC;
 
@@ -14,8 +14,8 @@ public abstract class AbstractGuitarFactory implements AcousticInterface {
     public long getUpcCount() { return upc; }
 
 
-    public abstract void createFrame(AcousticInterface acoustic);
-    public abstract void createFrame(ElectricInterface electric);
-    public abstract void createFrame(HybridInterface hybrid);
+    public abstract void createFrame(AbstractAcoustic acoustic);
+    public abstract void createFrame(AbstractElectric electric);
+    public abstract void createFrame(AbstractHybrid hybrid);
 
 }

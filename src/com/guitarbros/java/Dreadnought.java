@@ -1,33 +1,21 @@
 package com.guitarbros.java;
 
-public abstract class Dreadnought extends AcousticOptionFactory1 {
+public class Dreadnought extends AbstractAcoustic {
 
-    private static final long prefix = 3333;
+    private static final long prefix = 353401;
 
-    public Dreadnought() {
-        upc = 5678;
+    public Dreadnought(GuitarColor color, GuitarStrings strings) {
+        super(strings, color);
+        upc = 1234;
         setSerialUPC(SerialNumbers.getInstance(prefix, upc).getNextSerial());
     }
 
     @Override
-    public  long getPrefix() {
-        return prefix;
-    }
+    public long getPrefix() {return prefix;}
 
     @Override
-    public String getHollowBody() {
-        return "Guitar parts of the Acoustic. ";
-    }
+    public float getPrice() {return 200F;}
 
     @Override
-    public String getSoundHole() {
-        return "Guitar parts of the Acoustic. ";
-    }
-
-    @Override
-    public String getSaddle() {
-        return "Guitar parts of the Acoustic. ";
-    }
-
-
+    public String getFretBoard() {return fretBoard;}
 }

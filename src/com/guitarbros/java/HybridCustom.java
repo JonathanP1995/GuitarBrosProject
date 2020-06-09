@@ -1,48 +1,22 @@
 package com.guitarbros.java;
 
-public class HybridCustom implements HybridInterface {
-    @Override
-    public String getHollowBody() {
-        return "Guitar parts of the Hybrid. ";
+public class HybridCustom extends AbstractHybrid {
+
+    private static final long prefix = 88097;
+
+    public HybridCustom(GuitarColor color, GuitarStrings strings) {
+        super(strings, color);
+        upc = 1234;
+        setSerialUPC(SerialNumbers.getInstance(prefix, upc).getNextSerial());
     }
 
     @Override
-    public String getElectricPickUps() {
-        return "Guitar parts of the Hybrid. ";
-    }
+    public long getPrefix() {return prefix;}
 
     @Override
-    public String getYCable() {
-        return "Guitar parts of the Hybrid. ";
-    }
+    public float getPrice() {return 2000F;}
 
     @Override
-    public String getStrings() {
-        return "Guitar parts of the Hybrid. ";
-    }
+    public String getFretBoard() {return fretBoard;}
 
-    @Override
-    public String getFretBoard() {
-        return "Guitar parts of the Hybrid. ";
-    }
-
-    @Override
-    public String getTurners() {
-        return "Guitar parts of the Hybrid. ";
-    }
-
-    @Override
-    public String getBridge() {
-        return "Guitar parts of the Hybrid. ";
-    }
-
-    @Override
-    public String getUpc() {
-        return "Guitar parts of the Hybrid. ";
-    }
-
-    @Override
-    public String getInstructionBook() {
-        return "Guitar parts of the Hybrid. ";
-    }
 }

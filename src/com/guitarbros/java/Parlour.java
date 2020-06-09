@@ -1,33 +1,21 @@
 package com.guitarbros.java;
 
-public abstract class Parlour extends AcousticOptionFactory1 {
+public class Parlour extends AbstractAcoustic {
 
-    private static final long prefix = 3333;
+    private static final long prefix = 353652;
 
-    public Parlour() {
-        upc = 5678;
+    public Parlour(GuitarColor color, GuitarStrings strings) {
+        super(strings, color);
+        upc = 1234;
         setSerialUPC(SerialNumbers.getInstance(prefix, upc).getNextSerial());
     }
 
     @Override
-    public  long getPrefix() {
-        return prefix;
-    }
+    public long getPrefix() {return prefix;}
 
     @Override
-    public String getHollowBody() {
-        return "Guitar parts of the Acoustic. ";
-    }
+    public float getPrice() {return 250F;}
 
     @Override
-    public String getSoundHole() {
-        return "Guitar parts of the Acoustic. ";
-    }
-
-    @Override
-    public String getSaddle() {
-        return "Guitar parts of the Acoustic. ";
-
-    }
-
+    public String getFretBoard() {return fretBoard;}
 }
