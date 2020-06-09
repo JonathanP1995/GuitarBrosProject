@@ -9,6 +9,20 @@ public class GuitarOrder{
 
     private int price = 10;
     private int total = 0;
+    private int prefixFender = 113243;
+    private int serialFender = 8488;
+    private int prefixLesPaul = 113532;
+    private int serialLesPaul = 7446;
+    private int prefixFlyV = 113643;
+    private int serialFlyV = 3398;
+    private int prefixDreadnought = 353401;
+    private int serialDreadnought = 9753;
+    private int prefixAuditorium = 353860;
+    private int serialAuditorium = 7326;
+    private int prefixParlour = 353652;
+    private int serialParlour = 8647;
+    private int prefixHybrid = 880972;
+    private int serialHybrid = 1234;
     private List<Guitar> myOrder;
     private int orderSize, varType;
     private Scanner in;
@@ -78,17 +92,17 @@ public class GuitarOrder{
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "$700     -     Fender Stratocaster     -    Electric       -      #EG6400     -    1132438488       -       000001";
+                        thingType = "$700     -     Fender Stratocaster     -    Electric       -      #EG6400     -    " + prefixFender + serialFender++;
                         total = total + 700;
                         varChoice5();
                         break;
                     case 2:
-                        thingType = "$600     -       Gibson Les Paul      -     Electric       -      #EG7400     -    1135327446       -       000002";
+                        thingType = "$600     -       Gibson Les Paul      -     Electric       -      #EG7400     -    " + prefixLesPaul + serialLesPaul++;
                         total = total + 600;
                         varChoice5();
                         break;
                     default:
-                        thingType = "$1,200     -     Gibson Flying V      -     Electric       -      #EG8600     -    1136433398       -       000003";
+                        thingType = "$1,200     -     Gibson Flying V      -     Electric       -      #EG8600     -    " + prefixFlyV + serialFlyV++;
                         total = total + 1200;
                         varChoice5();
                         break;
@@ -111,17 +125,17 @@ public class GuitarOrder{
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "$200       -       Dreadnought      -       Acoustic       -      #AG3219     -    3534019753       -       000004";
+                        thingType = "$200       -       Dreadnought      -       Acoustic       -      #AG3219     -    " + prefixDreadnought + serialDreadnought++;
                         total = total + 200;
                         varChoice5();
                         break;
                     case 2:
-                        thingType = "$400         -       Parlour        -       Acoustic       -      #AG3319     -    3536528647       -       000005";
+                        thingType = "$400         -       Parlour        -       Acoustic       -      #AG3319     -    " + prefixParlour + serialParlour++;
                         total = total + 400;
                         varChoice5();
                         break;
                     default:
-                        thingType = "$250           -   Auditorium       -       Acoustic        -     #AG4019     -    3538607326       -       000006";
+                        thingType = "$250           -   Auditorium       -       Acoustic        -     #AG4019     -    " + prefixAuditorium + serialAuditorium++;
                         total = total + 250;
                         varChoice5();
                         break;
@@ -138,7 +152,7 @@ public class GuitarOrder{
         switch (val) {
             case "Y":
             case "y":
-                thingType = "$2000      -       Specialty       -         Hybrid       -      #HB00001     -    3538600001      -       000007";
+                thingType = "$2000      -       Specialty       -         Hybrid       -      #HB00001     -    "  + prefixHybrid + serialHybrid++;
                 total = total + 2000;
                 varChoice5();
                 break;
@@ -238,15 +252,16 @@ public class GuitarOrder{
         String GuitarName = String.format("%25s", "Guitar Name");
         String GuitarType = String.format("%20s", "Type");
         String Model = String.format("%22s", "Model");
-        String UPC = String.format("%18s", "UPC#");
-        String Serial = String.format("%24s", "Serial#");
+        //String UPC = String.format("%18s", "UPC#");
+        //---------combined serial and UPC-----------------------
+        String Serial = String.format("%18s", "Serial#");
         String GuitarColor1 = String.format("%27s", "Color");
         System.out.println();
         System.out.print(price);
         System.out.print(GuitarName);
         System.out.print(GuitarType);
         System.out.print(Model);
-        System.out.print(UPC);
+        //System.out.print(UPC);
         System.out.println(Serial);
         System.out.println(GuitarColor1);
         //----------------------------
