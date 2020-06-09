@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class GuitarOrder{
 
     private int price = 10;
+    private int total = 0;
     private List<Guitar> myOrder;
     private int orderSize, varType;
     private Scanner in;
@@ -78,14 +79,17 @@ public class GuitarOrder{
                 switch (varType) {
                     case 1:
                         thingType = "$700     -     Fender Stratocaster     -    Electric       -      #EG6400     -    1132438488       -       000001";
+                        total = total + 700;
                         varChoice5();
                         break;
                     case 2:
                         thingType = "$600     -       Gibson Les Paul      -     Electric       -      #EG7400     -    1135327446       -       000002";
+                        total = total + 600;
                         varChoice5();
                         break;
                     default:
                         thingType = "$1,200     -     Gibson Flying V      -     Electric       -      #EG8600     -    1136433398       -       000003";
+                        total = total + 1200;
                         varChoice5();
                         break;
 
@@ -108,14 +112,17 @@ public class GuitarOrder{
                 switch (varType) {
                     case 1:
                         thingType = "$200       -       Dreadnought      -       Acoustic       -      #AG3219     -    3534019753       -       000004";
+                        total = total + 200;
                         varChoice5();
                         break;
                     case 2:
                         thingType = "$400         -       Parlour        -       Acoustic       -      #AG3319     -    3536528647       -       000005";
+                        total = total + 400;
                         varChoice5();
                         break;
                     default:
                         thingType = "$250           -   Auditorium       -       Acoustic        -     #AG4019     -    3538607326       -       000006";
+                        total = total + 250;
                         varChoice5();
                         break;
 
@@ -132,6 +139,7 @@ public class GuitarOrder{
             case "Y":
             case "y":
                 thingType = "$2000      -       Specialty       -         Hybrid       -      #HB00001     -    3538600001      -       000007";
+                total = total + 2000;
                 varChoice5();
                 break;
             case "N":
@@ -170,12 +178,15 @@ public class GuitarOrder{
                         break;
                     case 4:
                         thingColor1 = "$10      -             RED";
+                        total = total + 10;
                         break;
                     case 5:
                         thingColor1 = "$10      -             BLUE";
+                        total = total + 10;
                         break;
                     default:
                         thingColor1 = "$10      -            YELLOW";
+                        total = total + 10;
                         break;
 
                 }
@@ -212,41 +223,48 @@ public class GuitarOrder{
     }
     private void printResult() {
         showStarBorder();
+        //---------Main Header----------------------
         String company = String.format("%67s", "Guitar Bros");
         String address = String.format("%70s", "777 Awesome Avenue");
         String cityState = String.format("%70s", "Showcase City, MO");
+        String finalTotal = String.format("%5s", "TOTAL:") + "   $" + total;
         System.out.println();
         System.out.println(company);
         System.out.println(address);
         System.out.println(cityState);
         showStarBorder();
+        //------Column Header--------------------------
+        String price = String.format("%5s", "Price");
+        String GuitarName = String.format("%25s", "Guitar Name");
+        String GuitarType = String.format("%20s", "Type");
+        String Model = String.format("%22s", "Model");
+        String UPC = String.format("%18s", "UPC#");
+        String Serial = String.format("%24s", "Serial#");
+        String GuitarColor1 = String.format("%27s", "Color");
+        System.out.println();
+        System.out.print(price);
+        System.out.print(GuitarName);
+        System.out.print(GuitarType);
+        System.out.print(Model);
+        System.out.print(UPC);
+        System.out.println(Serial);
+        System.out.println(GuitarColor1);
+        //----------------------------
         showColumns();
+
+        System.out.println();
+        System.out.println(finalTotal);
+
+
     }
 
 
     private void showColumns () {
         for (Guitar myGuitar : myOrder) {
-            String price = String.format("%5s", "Price");
-            String GuitarName = String.format("%25s", "Guitar Name");
-            String GuitarType = String.format("%20s", "Type");
-            String Model = String.format("%22s", "Model");
-            String UPC = String.format("%18s", "UPC#");
-            String Serial = String.format("%24s", "Serial#");
-            String GuitarColor1 = String.format("%27s", "Color");
-            String total = String.format("%5s", "TOTAL");
-            System.out.println();
-            System.out.print(price);
-            System.out.print(GuitarName);
-            System.out.print(GuitarType);
-            System.out.print(Model);
-            System.out.print(UPC);
-            System.out.println(Serial);
-            System.out.println(GuitarColor1);
             //System.out.println(myGuitar.getOrderSize());
             //System.out.println(myGuitar.getGuitarType() + "");
             System.out.println(myGuitar.getThingType() + "");
             System.out.println(myGuitar.getThingColor1() + "");
-            System.out.print(total);
             System.out.println();
         }
 
