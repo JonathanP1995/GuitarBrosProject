@@ -1,6 +1,6 @@
 package com.guitarbros.java;
 
-public abstract class AbstractGuitarFactory implements AbstractAcoustic {
+public abstract class AbstractGuitarFactory {
     protected long upc;
     private long serialUPC;
 
@@ -10,7 +10,7 @@ public abstract class AbstractGuitarFactory implements AbstractAcoustic {
 
     public void setSerialUPC(long serial) { this.serialUPC = serial;}
 
-    @Override
+
     public long getUpcCount() { return upc; }
 
 

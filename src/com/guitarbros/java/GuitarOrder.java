@@ -7,11 +7,12 @@ import java.util.Scanner;
 
 public class GuitarOrder{
 
+    private int price = 10;
     private List<Guitar> myOrder;
     private int orderSize, varType;
     private Scanner in;
     private String instrumentType;
-    private String thingType;
+    private String thingType, thingColor1;
     private boolean isValueRight;
 
     public GuitarOrder() {
@@ -27,8 +28,8 @@ public class GuitarOrder{
     private void buildHouse() {
         System.out.println("Your dream guitar is waiting.");
         varChoice();
-        shipSize();
-        myOrder.add(new Guitar(instrumentType,thingType,orderSize));
+        //shipSize();
+        myOrder.add(new Guitar(instrumentType,thingType,orderSize,thingColor1));
         orderDone();
     }
 
@@ -54,7 +55,7 @@ public class GuitarOrder{
                         varChoice3();
                         break;
                     default:
-                        instrumentType = "Hybrid";
+                        instrumentType = "Acoustic/Electric Hybrid";
                         varChoice4();
                         break;
 
@@ -76,13 +77,16 @@ public class GuitarOrder{
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "Fender Stratocaster - model#EG6400, UPC# 1132438488";
+                        thingType = "$700     -     Fender Stratocaster     -    Electric       -      #EG6400     -    1132438488       -       000001";
+                        varChoice5();
                         break;
                     case 2:
-                        thingType = "Gibson Les Paul - model#EG7400, UPC# 1135327446";
+                        thingType = "$600     -       Gibson Les Paul      -     Electric       -      #EG7400     -    1135327446       -       000002";
+                        varChoice5();
                         break;
                     default:
-                        thingType = "Gibson Flying V - model#EG8600, UPC# 1136433398";
+                        thingType = "$1,200     -     Gibson Flying V      -     Electric       -      #EG8600     -    1136433398       -       000003";
+                        varChoice5();
                         break;
 
                 }
@@ -103,13 +107,16 @@ public class GuitarOrder{
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "Dreadnought - model#AG3219, UPC# 3534019753";
+                        thingType = "$200       -       Dreadnought      -       Acoustic       -      #AG3219     -    3534019753       -       000004";
+                        varChoice5();
                         break;
                     case 2:
-                        thingType = "Parlour - model#AG3319, UPC# 3536528647";
+                        thingType = "$400         -       Parlour        -       Acoustic       -      #AG3319     -    3536528647       -       000005";
+                        varChoice5();
                         break;
                     default:
-                        thingType = "Auditorium - model#AG4019, UPC# 3538607326";
+                        thingType = "$250           -   Auditorium       -       Acoustic        -     #AG4019     -    3538607326       -       000006";
+                        varChoice5();
                         break;
 
                 }
@@ -118,14 +125,14 @@ public class GuitarOrder{
     }
 
     private void varChoice4() {
-        System.out.println("Our specialty hybrid guitar is $2000.");
+        System.out.println("Our Hybrid guitar is $2000.");
         System.out.println("Would you like to proceed. Y for yes, N for no.");
         String val = in.next();
         switch (val) {
             case "Y":
             case "y":
-                thingType = "$2000 Acoustic/electric hybrid - model# HB00001,  UPC# 3538600001";
-                System.out.println("You have chosen our specialty Hybrid guitar. Congratulations!");
+                thingType = "$2000      -       Specialty       -         Hybrid       -      #HB00001     -    3538600001      -       000007";
+                varChoice5();
                 break;
             case "N":
             case "n":
@@ -136,7 +143,48 @@ public class GuitarOrder{
                 break;
         }
     }
-    private void shipSize() {
+
+    private void varChoice5() {
+        System.out.println("What color do you prefer?");
+        System.out.println("Options 1-3 have no added cost");
+        System.out.println("Options 4-6 have $10 cost");
+        System.out.println("Press 1 for Solid Color, 2 for Multi Color or 3 for Wood Grain");
+        System.out.println("Press 4 for RED, 5 for BLUE or 6 for YELLOW");
+        if(!verifyNumberInput()) {
+            System.out.println("You have entered an incorrect value. Please try again");
+            varChoice5();
+        } else {
+            if(varType > 6) {
+                System.out.println("You have entered a number larger than 6. Please try again");
+                varChoice5();
+            } else {
+                switch (varType) {
+                    case 1:
+                        thingColor1 = "No added charge:  Solid White";
+                        break;
+                    case 2:
+                        thingColor1 = "No added charge:  Multi Color";
+                        break;
+                    case 3:
+                        thingColor1 = "No added charge:  Wood Grain";
+                        break;
+                    case 4:
+                        thingColor1 = "$10      -             RED";
+                        break;
+                    case 5:
+                        thingColor1 = "$10      -             BLUE";
+                        break;
+                    default:
+                        thingColor1 = "$10      -            YELLOW";
+                        break;
+
+                }
+            }
+        }
+    }
+
+
+   /* private void shipSize() {
         System.out.println("How many guitars would you like?");
         in = new Scanner(System.in);
         isValueRight = false;
@@ -146,7 +194,7 @@ public class GuitarOrder{
             System.out.println("You have entered an incorrect value. Please try again");
             shipSize();
         }
-    }
+    }*/
 
 /*   private void printResult() {
         System.out.println("THANK YOU");
@@ -158,15 +206,15 @@ public class GuitarOrder{
 */
 
     private void showStarBorder() {
-        for (int i = 0; i < 92; i++) {
-            System.out.print("*");
+        for (int i = 0; i < 70; i++) {
+            System.out.print("\uD83C\uDFB8");
         }
     }
     private void printResult() {
         showStarBorder();
-        String company = String.format("%51s", "Guitar Bros");
-        String address = String.format("%54s", "777 Awesome Avenue");
-        String cityState = String.format("%54s", "Showcase City, MO");
+        String company = String.format("%67s", "Guitar Bros");
+        String address = String.format("%70s", "777 Awesome Avenue");
+        String cityState = String.format("%70s", "Showcase City, MO");
         System.out.println();
         System.out.println(company);
         System.out.println(address);
@@ -178,22 +226,28 @@ public class GuitarOrder{
 
     private void showColumns () {
         for (Guitar myGuitar : myOrder) {
-            String quantity = String.format("%5s", "QTY");
-            String price = String.format("%15s", "PRICE");
+            String price = String.format("%5s", "Price");
             String GuitarName = String.format("%25s", "Guitar Name");
-            String GuitarType = String.format("%15s", "Guitar Type");
-            String Model = String.format("%15s", "Model#");
-            String UPC = String.format("%15s", "UPC");
+            String GuitarType = String.format("%20s", "Type");
+            String Model = String.format("%22s", "Model");
+            String UPC = String.format("%18s", "UPC#");
+            String Serial = String.format("%24s", "Serial#");
+            String GuitarColor1 = String.format("%27s", "Color");
+            String total = String.format("%5s", "TOTAL");
             System.out.println();
-            System.out.print(quantity);
             System.out.print(price);
             System.out.print(GuitarName);
             System.out.print(GuitarType);
             System.out.print(Model);
-            System.out.println(UPC);
-            System.out.println(myGuitar.getOrderSize());
-            System.out.println(myGuitar.getGuitarType() + "");
+            System.out.print(UPC);
+            System.out.println(Serial);
+            System.out.println(GuitarColor1);
+            //System.out.println(myGuitar.getOrderSize());
+            //System.out.println(myGuitar.getGuitarType() + "");
             System.out.println(myGuitar.getThingType() + "");
+            System.out.println(myGuitar.getThingColor1() + "");
+            System.out.print(total);
+            System.out.println();
         }
 
         showStarBorder();
