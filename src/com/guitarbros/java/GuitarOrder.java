@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class GuitarOrder{
 
-    private int price = 10;
+    //private int price = 10;
     private int total = 0;
     private int prefixFender = 113243;
     private int serialFender = 8488;
@@ -27,7 +27,7 @@ public class GuitarOrder{
     private int orderSize, varType;
     private Scanner in;
     private String instrumentType;
-    private String thingType, thingColor1;
+    private String thingType, thingColor1, thingStrings;
     private boolean isValueRight;
 
     public GuitarOrder() {
@@ -44,7 +44,7 @@ public class GuitarOrder{
         System.out.println("Your dream guitar is waiting.");
         varChoice();
         //shipSize();
-        myOrder.add(new Guitar(instrumentType,thingType,orderSize,thingColor1));
+        myOrder.add(new Guitar(instrumentType,thingType,orderSize,thingColor1, thingStrings));
         orderDone();
     }
 
@@ -183,24 +183,57 @@ public class GuitarOrder{
                 switch (varType) {
                     case 1:
                         thingColor1 = "No added charge:  Solid White";
+                        varChoice6();
                         break;
                     case 2:
                         thingColor1 = "No added charge:  Multi Color";
+                        varChoice6();
                         break;
                     case 3:
                         thingColor1 = "No added charge:  Wood Grain";
+                        varChoice6();
                         break;
                     case 4:
                         thingColor1 = "$10      -             RED";
                         total = total + 10;
+                        varChoice6();
                         break;
                     case 5:
                         thingColor1 = "$10      -             BLUE";
                         total = total + 10;
+                        varChoice6();
                         break;
                     default:
                         thingColor1 = "$10      -            YELLOW";
                         total = total + 10;
+                        varChoice6();
+                        break;
+
+                }
+            }
+        }
+    }
+
+    private void varChoice6() {
+        System.out.println("What type of string would you prefer?");
+        System.out.println("Our nylon strings have no added cost");
+        System.out.println("Our steel strings will be an extra $20");
+        System.out.println("Press 1 for Nylon strings and 2 for Steel strings.");
+        if(!verifyNumberInput()) {
+            System.out.println("You have entered an incorrect value. Please try again");
+            varChoice5();
+        } else {
+            if(varType > 2) {
+                System.out.println("You have entered a number larger than 2. Please try again");
+                varChoice6();
+            } else {
+                switch (varType) {
+                    case 1:
+                        thingStrings = "No added charge:  Nylon Strings";
+                        break;
+                    default:
+                        thingStrings = "$20      -            Steel ";
+                        total = total + 20;
                         break;
 
                 }
@@ -251,11 +284,11 @@ public class GuitarOrder{
         String price = String.format("%5s", "Price");
         String GuitarName = String.format("%25s", "Guitar Name");
         String GuitarType = String.format("%20s", "Type");
-        String Model = String.format("%22s", "Model");
+        String Model = String.format("%22s", "Model#");
         //String UPC = String.format("%18s", "UPC#");
         //---------combined serial and UPC-----------------------
         String Serial = String.format("%18s", "Serial#");
-        String GuitarColor1 = String.format("%27s", "Color");
+        String GuitarColor1 = String.format("%32s", "-Color/Strings-");
         System.out.println();
         System.out.print(price);
         System.out.print(GuitarName);
@@ -270,6 +303,7 @@ public class GuitarOrder{
         System.out.println();
         System.out.println(finalTotal);
 
+        showStarBorder();
 
     }
 
@@ -280,10 +314,11 @@ public class GuitarOrder{
             //System.out.println(myGuitar.getGuitarType() + "");
             System.out.println(myGuitar.getThingType() + "");
             System.out.println(myGuitar.getThingColor1() + "");
+            System.out.println(myGuitar.getThingStrings() + "");
             System.out.println();
         }
 
-        showStarBorder();
+
     }
 
 
